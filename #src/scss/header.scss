@@ -1,5 +1,60 @@
 //====================================================================================================
 
+.header {
+  position: relative;
+  z-index: 100;
+
+  &__body {
+    display: flex;
+    position: absolute;
+    top: 24px;
+    left: 0;
+    padding: 0 32px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__logo {
+    cursor: pointer;
+    display: block;
+  }
+
+  &__nav {
+    display: flex;
+
+    & > *:not(:last-child) {
+      margin-right: 56px;
+    }
+  }
+
+  .nav__link {
+    color: #fff;
+    text-transform: uppercase;
+    font-family: $fontFamily2;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    position: relative;
+
+    &:hover:before,
+    &:active:before {
+      content: '';
+      position: absolute;
+      left: -10%;
+      top: -39px;
+      width: 120%;
+      height: 3px;
+      background: #45A1E3;
+    }
+  }
+
+  &__button.global_button {
+    width: 152px;
+    height: 46px;
+  }
+}
+
 //====================================================================================================
 
 /*
