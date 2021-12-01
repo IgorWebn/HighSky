@@ -27,6 +27,17 @@
   font-weight: 400;
   font-style: normal;
 }
+/*===>>>   96*/
+/*===>>>  80*/
+/*===>>>  64*/
+/*===>>> 56*/
+/*===>>> 48*/
+/*===>>>*/
+/*===>>>*/
+/*===>>>*/
+/*===>>>*/
+/*===>>>*/
+/*===>>>*/
 * {
   padding: 0px;
   margin: 0px;
@@ -56,7 +67,7 @@ html {
 html,
 body {
   height: 100%;
-  min-width: 320px;
+  min-width: 375px;
 }
 
 body {
@@ -120,6 +131,10 @@ h6 {
 	display: none;
 }
 */
+html {
+  min-width: 375px;
+}
+
 body {
   color: #000;
 }
@@ -135,11 +150,16 @@ body._lock {
   flex-direction: column;
 }
 ._container {
-  max-width: 1470px;
+  max-width: 1920px;
   margin: 0 auto;
-  padding: 0 15px;
+  /*$md0: 1440 + 12;
+  $md1: 1252;
+  $md2: 991.98;
+  $md3: 767.98;
+  $md4: 479.98;
+  */
 }
-@media (max-width: 1482px) {
+@media (max-width: 1452px) {
   ._container {
     max-width: 1440px;
   }
@@ -782,6 +802,53 @@ body.ie ._ibg img {
   background: url("../img/icons/close.svg") 0 0 no-repeat;
 }
 
+.header {
+  position: relative;
+  z-index: 100;
+}
+.header__body {
+  display: flex;
+  position: absolute;
+  top: 24px;
+  left: 0;
+  padding: 0 32px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.header__logo {
+  cursor: pointer;
+  display: block;
+}
+.header__nav {
+  display: flex;
+}
+.header__nav > *:not(:last-child) {
+  margin-right: 56px;
+}
+.header .nav__link {
+  color: #fff;
+  text-transform: uppercase;
+  font-family: "GTAmerica";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  position: relative;
+}
+.header .nav__link:hover:before, .header .nav__link:active:before {
+  content: "";
+  position: absolute;
+  left: -10%;
+  top: -39px;
+  width: 120%;
+  height: 3px;
+  background: #45A1E3;
+}
+.header__button.global_button {
+  width: 152px;
+  height: 46px;
+}
+
 /*
 //Burger
 .icon-menu {
@@ -827,18 +894,264 @@ body.ie ._ibg img {
 	}
 }
 */
+@keyframes do-levitation {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0, 40px);
+  }
+}
+@keyframes do-levitationTW {
+  0% {
+    transform: translate(25%, 0);
+  }
+  100% {
+    transform: translate(25%, 40px);
+  }
+}
+.footer {
+  position: relative;
+}
+.footer-object {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.footer-object__elips1 {
+  z-index: -10;
+  top: 216px;
+  left: 117px;
+  width: 413px;
+  height: 708.66px;
+  filter: blur(250px);
+  background: linear-gradient(90deg, #FBED96 0%, #ABECD6 100%);
+  transform: rotate(38.84deg);
+}
+.footer__body {
+  height: 744px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 56px;
+  align-items: center;
+}
+.footer__title {
+  max-width: 887px;
+  font-weight: 700;
+  font-size: 80px;
+  line-height: 83%;
+  text-align: center;
+  letter-spacing: -0.015em;
+  margin-bottom: 100px;
+}
+.footer__objects {
+  height: 164px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.footer .one-network-obj {
+  position: relative;
+  padding: 0 258px;
+}
+.footer .one-network-obj > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 164px;
+  height: 164px;
+  border-radius: 500px;
+  animation: do-levitation 2s alternate ease-in infinite;
+}
+.footer .one-network-obj__discord {
+  background: #7581F0;
+  box-shadow: 0 0 40px rgba(117, 129, 240, 0.7);
+  animation-delay: 1s;
+}
+.footer .one-network-obj__twitter {
+  transform: translate(25%, 0);
+  margin-top: 152px;
+  background: #2aa3ef;
+  box-shadow: 0 0 40px rgba(42, 163, 239, 0.7);
+  animation-delay: 1.5s;
+  animation: do-levitationTW 2s alternate ease-in infinite;
+}
+.footer .one-network-obj__telegram {
+  background: #2aa3ef;
+  box-shadow: 0 0 40px rgba(42, 163, 239, 0.7);
+  animation-delay: 2s;
+}
+.footer__info {
+  padding: 0 32px;
+  margin-top: auto;
+  width: 100%;
+  display: flex;
+  height: 62px;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "GTAmerica";
+}
+.footer__info .p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  text-transform: uppercase;
+}
+
+@media (max-width: 479.98px) {
+  .footer-object {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .footer-object__elips1 {
+    z-index: -10;
+    top: 216px;
+    left: 117px;
+    width: 413px;
+    height: 708.66px;
+    filter: blur(250px);
+    background: linear-gradient(90deg, #FBED96 0%, #ABECD6 100%);
+    transform: rotate(38.84deg);
+  }
+  .footer__body {
+    height: 744px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 56px;
+    align-items: center;
+  }
+  .footer__title {
+    max-width: 887px;
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 83%;
+    text-align: center;
+    letter-spacing: -0.015em;
+    margin-bottom: 100px;
+  }
+  .footer__objects {
+    height: 164px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .footer .one-network-obj {
+    position: relative;
+    padding: 0 258px;
+  }
+  .footer .one-network-obj > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 164px;
+    height: 164px;
+    border-radius: 500px;
+    animation: do-levitation 2s alternate ease-in infinite;
+  }
+  .footer .one-network-obj__discord {
+    background: #7581F0;
+    box-shadow: 0 0 40px rgba(117, 129, 240, 0.7);
+    animation-delay: 1s;
+  }
+  .footer .one-network-obj__twitter {
+    transform: translate(25%, 0);
+    margin-top: 152px;
+    background: #2aa3ef;
+    box-shadow: 0 0 40px rgba(42, 163, 239, 0.7);
+    animation-delay: 1.5s;
+    animation: do-levitationTW 2s alternate ease-in infinite;
+  }
+  .footer .one-network-obj__telegram {
+    background: #2aa3ef;
+    box-shadow: 0 0 40px rgba(42, 163, 239, 0.7);
+    animation-delay: 2s;
+  }
+  .footer__info {
+    padding: 0 15px;
+    height: 44px;
+  }
+  .footer__info .p {
+    font-size: 12px;
+    overflow: hidden;
+  }
+  .footer__info .p span {
+    display: none;
+  }
+}
+/*$md0: 1440 + 12;
+$md1: 1252;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+*/
 .page {
   flex: 1 1 auto;
 }
 
+.global_button {
+  cursor: pointer;
+  width: 192px;
+  height: 58px;
+  background: #0094FF;
+  border-radius: 16px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-family: "GTAmerica";
+  font-size: 12px;
+  line-height: 16px;
+  box-shadow: 0 0 20px rgba(0, 148, 255, 0.6);
+}
+
 /*----FOR_INVESTORS------*/
 .for-investors {
-  min-height: 100vh;
-  background: url("../img/ForInvestors/background1.jpg") 100% 100% no-repeat;
-  background-size: cover;
+  min-height: 744px;
+  height: 744px;
+  background: url("../img/ForInvestors/background1.jpg") center/cover no-repeat;
 }
 .for-investors__body {
+  height: 744px;
   position: relative;
+}
+.for-investors__icons {
+  position: absolute;
+  bottom: 26px;
+  right: 35px;
+  display: flex;
+  width: 154px;
+  height: 46px;
+  justify-content: space-between;
+}
+.for-investors__icons a {
+  height: 46px;
+  width: 46px;
+  border-radius: 50%;
+  border: 1px solid #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.for-investors__icons .disc:hover {
+  border: none;
+  background: #7581F0;
+}
+.for-investors__icons .twit:hover {
+  border: none;
+  background: #5bceff;
+}
+.for-investors__icons .tel:hover {
+  border: none;
+  background: #0094ff;
+}
+.for-investors__lines {
+  height: 744px;
+  display: flex;
+  flex-direction: column;
+  padding: 182px 94px 154px;
 }
 .for-investors__line {
   font-weight: 700;
@@ -846,26 +1159,21 @@ body.ie ._ibg img {
   line-height: 83%;
   letter-spacing: -0.015em;
   color: #FFFFFF;
-  position: absolute;
-  width: 100%;
 }
 .for-investors__line.line__1 {
-  top: 182px;
-  left: 208px;
+  padding-left: 114px;
 }
 .for-investors__line.line__2 {
   color: #45A1E3;
-  top: 283px;
-  left: 490px;
+  text-align: right;
 }
 .for-investors__line.line__3 {
-  top: 384px;
-  left: 94px;
+  display: flex;
+  align-items: center;
 }
 .for-investors__line.line__4 {
   color: #45A1E3;
-  top: 487px;
-  left: 384px;
+  text-align: center;
 }
 .for-investors__p {
   font-family: "GTAmerica";
@@ -874,11 +1182,9 @@ body.ie ._ibg img {
   line-height: 133%;
   text-transform: uppercase;
   color: #FFFFFF;
-  position: absolute;
-  top: 419px;
-  left: 647px;
   max-width: 281px;
   letter-spacing: 1px;
+  margin-left: 48px;
 }
 
 /*---------------WHY---------------*/
@@ -900,8 +1206,9 @@ body.ie ._ibg img {
   width: 413px;
   height: 592px;
   background: linear-gradient(90deg, #9796F0 0%, #FBC7D4 100%);
-  filter: blur(400px);
+  filter: blur(200px);
   transform: rotate(-27.97deg);
+  z-index: -10;
 }
 .why-object__akyla {
   top: 114px;
@@ -918,8 +1225,9 @@ body.ie ._ibg img {
   left: 1080px;
   top: 527px;
   background: linear-gradient(90deg, #DAD299 0%, #B0DAB9 100%);
-  filter: blur(400px);
+  filter: blur(200px);
   transform: rotate(15deg);
+  z-index: -10;
 }
 .why__title {
   max-width: 285px;
@@ -946,7 +1254,10 @@ body.ie ._ibg img {
   min-height: 605px;
   justify-content: center;
 }
-.why-main__block {
+.why-main > *:not(:last-child) {
+  margin-right: 24px;
+}
+.why-main .circle-block {
   padding-top: 80px;
   border-radius: 50%;
   width: 525px;
@@ -954,9 +1265,338 @@ body.ie ._ibg img {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  backdrop-filter: blur(40px);
+}
+.why-main .circle-block__icon {
+  margin-bottom: 32px;
 }
 .why-main .circle-block__title {
+  text-align: center;
   max-width: 378px;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 130%;
+  margin-bottom: 16px;
 }
+.why-main .circle-block__subtitle {
+  text-align: center;
+  font-family: "GTAmerica";
+  max-width: 385px;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 130%;
+}
+
 /*--------------END-WHY---------------*/
+/*------------YouInvest--------------*/
+.you-invest {
+  position: relative;
+  min-height: 744px;
+  background: #262626;
+  z-index: -2;
+}
+.you-invest__body {
+  padding: 80px 0 32px;
+  position: relative;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+.you-invest__body_before {
+  position: absolute;
+  width: 100%;
+  height: 463.8px;
+  left: 0;
+  top: 0;
+  font-weight: bold;
+  font-size: 510.685px;
+  line-height: 90%;
+  letter-spacing: -0.02em;
+  opacity: 0.05;
+}
+.you-invest__title {
+  font-weight: bold;
+  font-size: 80px;
+  line-height: 83%;
+  letter-spacing: -0.015em;
+  margin-bottom: 40px;
+}
+.you-invest__subtitle {
+  font-family: "GTAmerica";
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 130%;
+  text-align: center;
+  letter-spacing: -0.035em;
+  max-width: 200px;
+}
+.you-invest .invest-slider {
+  position: relative;
+  margin-top: 93px;
+  width: 817px;
+  height: 408.5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+.you-invest .invest-slider__title {
+  margin-top: 156px;
+  margin-bottom: 90px;
+  max-width: 467px;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 130%;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+.you-invest .invest-slider__price {
+  font-family: "GTAmerica";
+  position: relative;
+  z-index: 10;
+  width: 258px;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 130%;
+  text-align: center;
+  padding-bottom: 16px;
+}
+.you-invest .invest-slider__price:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: #FFFFFF;
+  opacity: 0.2;
+}
+.you-invest .invest-slider .black-elips {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+.you-invest .invest-slider .blue-elips {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  transform: translate(-50%, 0);
+}
+.you-invest .invest-slider .star {
+  position: absolute;
+  left: -23px;
+  top: -23px;
+  z-index: -1;
+}
+.you-invest .invest-slider .line-elips {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+/*-----------END-YouInvest--------------*/
+/*=====================================*/
+/*------------YouKeys--------------*/
+.your-keys__body {
+  padding: 144px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #262626;
+  position: relative;
+}
+.your-keys-object {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.your-keys-object__elips1 {
+  z-index: -10;
+  top: -137px;
+  left: 820px;
+  width: 413px;
+  height: 592px;
+  filter: blur(200px);
+  background: linear-gradient(90deg, #2BC0E4 0%, #EAECC6 100%);
+  transform: rotate(15deg);
+}
+.your-keys__title {
+  max-width: 1000px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 80px;
+  line-height: 83%;
+  letter-spacing: -0.015em;
+  margin-bottom: 40px;
+}
+.your-keys__subtitle {
+  max-width: 412px;
+  text-align: center;
+  font-family: "GTAmerica";
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 130%;
+  letter-spacing: -0.035em;
+  margin-bottom: 80px;
+}
+.your-keys__cards {
+  display: flex;
+  margin-bottom: 56px;
+}
+.your-keys .card-keys.card2 {
+  margin-right: 0;
+  margin-top: 135px;
+}
+.your-keys .card-keys.card2 .card-keys__icon img {
+  margin: 48px auto 78px;
+  width: 260px;
+  height: 145px;
+}
+.your-keys .card-keys.card2:after {
+  background: #73C6F4;
+}
+.your-keys .card-keys {
+  color: black;
+  position: relative;
+  width: 442px;
+  height: 549px;
+  border-radius: 16px;
+  margin-right: 24px;
+  padding: 40px;
+}
+.your-keys .card-keys:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 18px;
+  left: 0;
+  bottom: 0;
+  background: #F47373;
+  border-radius: 0 0 16px 16px;
+}
+.your-keys .card-keys__rect img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -11;
+  backdrop-filter: blur(40px);
+}
+.your-keys .card-keys__number {
+  position: absolute;
+  width: 136px;
+  height: 76px;
+  left: 40px;
+  top: 30px;
+  font-weight: 500;
+  font-size: 80px;
+  line-height: 96%;
+  color: white;
+  text-shadow: 0px 0px 1px black;
+  z-index: -1;
+}
+.your-keys .card-keys__title {
+  margin-top: 30px;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 130%;
+}
+.your-keys .card-keys__icon {
+  display: flex;
+}
+.your-keys .card-keys__icon img {
+  margin: 48px auto;
+  width: 145px;
+  height: 145px;
+}
+.your-keys .card-keys__subtitle {
+  max-width: 338px;
+  font-family: "GTAmerica";
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 130%;
+  letter-spacing: -0.035em;
+}
+
+/*-----------END-YouKeys--------------*/
+/*------------provide--------------*/
+.provide__body {
+  padding: 0 0 144px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #262626;
+  position: relative;
+}
+.provide-object {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.provide-object__elips1 {
+  z-index: -10;
+  top: 350px;
+  left: -30px;
+  width: 413px;
+  height: 592px;
+  filter: blur(250px);
+  background: linear-gradient(90deg, #9796F0 0%, #FBC7D4 100%);
+  transform: rotate(45deg);
+}
+.provide__title {
+  max-width: 1000px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 80px;
+  line-height: 83%;
+  letter-spacing: -0.015em;
+  margin-bottom: 80px;
+}
+.provide__lines {
+  display: flex;
+  flex-direction: column;
+  max-width: 1151px;
+}
+.provide__lines-line {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  margin-left: 105px;
+}
+.provide__lines-line:nth-child(even) {
+  margin-left: 0;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+.provide__lines-line:nth-child(even) .provide__lines-line__title {
+  padding-right: 0;
+  margin-left: 140px;
+}
+.provide__lines-line__title {
+  padding-right: 6px;
+  max-width: 570px;
+}
+.provide__lines-line__title .h {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 130%;
+  margin-bottom: 16px;
+}
+.provide__lines-line__title .p {
+  font-family: "GTAmerica";
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 130%;
+  letter-spacing: -0.035em;
+  color: #000000;
+}
+/*-----------END-provide--------------*/
 /*---END-FOR_INVESTORS------*/
