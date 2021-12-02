@@ -15,7 +15,6 @@
   }
 }
 
-
 .footer {
   position: relative;
 
@@ -37,21 +36,21 @@
   }
 
   &__body {
-    height: 744px;
+    min-height: 744px;
     display: flex;
     flex-direction: column;
-    padding-top: 56px;
+    @include adaptiv-value('padding-top',56,48,0);
     align-items: center;
   }
 
   &__title {
-    max-width: 887px;
+    max-width: 70%;
     font-weight: 700;
-    font-size: 80px;
     line-height: 83%;
     text-align: center;
     letter-spacing: -0.015em;
     margin-bottom: 100px;
+    @include adaptiv-value('font-size',80,40,0);
   }
 
   &__objects {
@@ -59,42 +58,6 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-  }
-
-  .one-network-obj {
-    position: relative;
-    padding: 0 258px;
-
-    & > * {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 164px;
-      height: 164px;
-      border-radius: 500px;
-      animation: do-levitation 2s alternate ease-in infinite;
-    }
-
-    &__discord {
-      background: #7581F0;
-      box-shadow: 0 0 40px rgba(117, 129, 240, 0.7);
-      animation-delay: 1s;
-    }
-
-    &__twitter {
-      transform: translate(25%,0);
-      margin-top: 152px;
-      background: rgba(42, 163, 239, 1);
-      box-shadow: 0 0 40px rgba(42, 163, 239, 0.7);
-      animation-delay: 1.5s;
-      animation: do-levitationTW 2s alternate ease-in infinite;
-    }
-
-    &__telegram {
-      background: rgba(42, 163, 239, 1);
-      box-shadow: 0 0 40px rgba(42, 163, 239, 0.7);
-      animation-delay: 2s;
-    }
   }
 
   &__info {
@@ -115,98 +78,128 @@
     }
   }
 }
+.one-network-obj {
+  position: relative;
+  padding: 0 258px;
 
+  & > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 500px;
+    animation: do-levitation 2s alternate ease-in infinite;
+    @include adaptiv-value('width',164,96,0);
+    @include adaptiv-value('height',164,96,0);
+  }
 
-@media (max-width: $md1 + px) {
+  &__discord {
+    background: #7581F0;
+    box-shadow: 0 0 40px rgba(117, 129, 240, 0.7);
+    animation-delay: 1s;
+    svg{
+      @include adaptiv-value('width',78,45,0);
+      @include adaptiv-value('height',56,32,0);
+    }
+  }
 
+  &__twitter {
+    transform: translate(25%,0);
+    margin-top: 152px;
+    background: rgba(42, 163, 239, 1);
+    box-shadow: 0 0 40px rgba(42, 163, 239, 0.7);
+    animation-delay: 1.5s;
+    animation: do-levitationTW 2s alternate ease-in infinite;
+    svg{
+      @include adaptiv-value('width',64,37,0);
+      @include adaptiv-value('height',52,30,0);
+    }
+  }
+
+  &__telegram {
+    background: rgba(42, 163, 239, 1);
+    box-shadow: 0 0 40px rgba(42, 163, 239, 0.7);
+    animation-delay: 2s;
+    svg{
+      @include adaptiv-value('width',62,36,0);
+      @include adaptiv-value('height',54,32,0);
+    }
+  }
 }
+
 @media (max-width: $md2+px) {
+  .footer {
+    &-object {
+      &__elips1 {
+        top: 144px;
+        left:-60px;
+      }
+    }
+    &__title {
+      position: relative;
+      max-width: 90%;
+      span{
+        position: absolute;
+        width: 800px;
+        height: 144px;
+        left: 0;
+        top: 0;
+        font-weight: 700;
+        font-size: 144px;
+        line-height: 100%;
+        color: white;
+        text-shadow: 0px 0px 1px $black;
+        z-index: -1000;
+        transform: translate(-15%,260px) rotate(-30deg);
+      }
+    }
+    .one-network-obj {
+      padding: 0 100px;
+      & > * {
+        margin-bottom: 40px;
+      }
+      &> *:last-child{
+        margin-bottom: 180px;
+      }
+
+    }
+  }
 
 }
 @media (max-width: $md3+px) {
-
+  .footer {
+    .one-network-obj {
+      padding: 0 30px;
+    }
+}
 }
 @media (max-width: $md4 + px) {
-
   .footer {
-    &-object {
-      position: absolute;
-      top: 0;
-      left: 0;
-
-      &__elips1 {
-        z-index: -10;
-        top: 216px;
-        left: 117px;
-        width: 413px;
-        height: 708.66px;
-        filter: blur(250px);
-        background: linear-gradient(90deg, #FBED96 0%, #ABECD6 100%);
-        transform: rotate(38.84deg);
-      }
-    }
-
-    &__body {
-      height: 744px;
-      display: flex;
-      flex-direction: column;
-      padding-top: 56px;
-      align-items: center;
-    }
-
     &__title {
-      max-width: 887px;
-      font-weight: 700;
-      font-size: 80px;
-      line-height: 83%;
-      text-align: center;
-      letter-spacing: -0.015em;
-      margin-bottom: 100px;
+      span{
+        transform: translate(-31%,260px) rotate(-52deg);
+      }
     }
 
     &__objects {
-      height: 164px;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
+      height: 100%;
+      align-items: center;
+      flex-direction: column;
     }
 
     .one-network-obj {
-      position: relative;
-      padding: 0 258px;
 
       & > * {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 164px;
-        height: 164px;
-        border-radius: 500px;
-        animation: do-levitation 2s alternate ease-in infinite;
+        animation:none;
+        margin-bottom: 40px;
       }
-
-      &__discord {
-        background: #7581F0;
-        box-shadow: 0 0 40px rgba(117, 129, 240, 0.7);
-        animation-delay: 1s;
+      &> *:last-child{
+        margin-bottom: 180px;
       }
-
       &__twitter {
-        transform: translate(25%,0);
-        margin-top: 152px;
-        background: rgba(42, 163, 239, 1);
-        box-shadow: 0 0 40px rgba(42, 163, 239, 0.7);
-        animation-delay: 1.5s;
-        animation: do-levitationTW 2s alternate ease-in infinite;
-      }
-
-      &__telegram {
-        background: rgba(42, 163, 239, 1);
-        box-shadow: 0 0 40px rgba(42, 163, 239, 0.7);
-        animation-delay: 2s;
+        transform: translate(0,0);
+        margin-top: 0;
       }
     }
-
     &__info {
       padding: 0 15px;
       height: 44px;
@@ -219,16 +212,7 @@
       }
     }
   }
-
-
 }
-/*$md0: 1440 + 12;
-$md1: 1252;
-$md2: 991.98;
-$md3: 767.98;
-$md4: 479.98;
-*/
-
 //====================================================================================================
 
 //====================================================================================================

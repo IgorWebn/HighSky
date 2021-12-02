@@ -24,7 +24,7 @@ $fontSize: 16;
 
 //<ПЕРЕМЕННЫЕ>==========================================================================================================
 $minWidth: 375px;
-$maxWidth: 1440px;
+$maxWidth: 1440;
 $maxWidthContainer: 1920;
 $md0: 1440 + 12;
 $md1: 1252;
@@ -36,18 +36,18 @@ $mainColor: #000;
 $blue: #45A1E3;
 $black: #262626;
 
-$_184:184px; /*===>>>   96*/
-$_144:144px;/*===>>>  80*/
-$_96:96px;/*===>>>  64*/
-$_80:80px;/*===>>> 56*/
-$_64:64px;
-$_56:56px;/*===>>> 48*/
-$_48:48px;/*===>>>*/
-$_40:40px;/*===>>>*/
-$_32:32px;/*===>>>*/
-$_24:24px;/*===>>>*/
-$_20:20px;/*===>>>*/
-$_16:16px;/*===>>>*/
+$_184: 184px; /*===>>>   96*/
+$_144: 144px; /*===>>>  80*/
+$_96: 96px; /*===>>>  64*/
+$_80: 80px; /*===>>> 56*/
+$_64: 64px;
+$_56: 56px; /*===>>> 48*/
+$_48: 48px; /*===>>>*/
+$_40: 40px; /*===>>>*/
+$_32: 32px; /*===>>>*/
+$_24: 24px; /*===>>>*/
+$_20: 20px; /*===>>>*/
+$_16: 16px; /*===>>>*/
 
 //</ПЕРЕМЕННЫЕ>===========================================================================================================
 
@@ -55,7 +55,7 @@ $_16:16px;/*===>>>*/
 @import "null";
 html {
   min-width: $minWidth;
- // max-width: $maxWidth;
+  // max-width: $maxWidth;
 }
 
 body {
@@ -99,14 +99,14 @@ body {
   }
   @media (max-width: $md3+px) {
     max-width: none;
-    padding: 0 10px;
+    padding: 0 16px;
   }
-/*$md0: 1440 + 12;
-$md1: 1252;
-$md2: 991.98;
-$md3: 767.98;
-$md4: 479.98;
-*/
+  /*$md0: 1440 + 12;
+  $md1: 1252;
+  $md2: 991.98;
+  $md3: 767.98;
+  $md4: 479.98;
+  */
 }
 
 //</ОСНОВНАЯ СЕТКА>===========================================================================================================
@@ -133,8 +133,6 @@ $md4: 479.98;
 
 .global_button {
   cursor: pointer;
-  width: 192px;
-  height: 58px;
   background: #0094FF;
   border-radius: 16px;
   color: white;
@@ -147,6 +145,8 @@ $md4: 479.98;
   font-size: 12px;
   line-height: 16px;
   box-shadow: 0 0 20px rgba(0, 148, 255, 0.6);
+  @include adaptiv-value('width', 192, 178, 0);
+  @include adaptiv-value('height', 58, 54, 0);
 }
 
 //===================================================================================================================================
@@ -184,17 +184,19 @@ $md4: 479.98;
       align-items: center;
     }
 
-    .disc:hover{
+    .disc:hover {
       border: none;
       background: #7581F0;
     }
-    .twit:hover{
+
+    .twit:hover {
       border: none;
       background: rgba(91, 206, 255, 1);
     }
-    .tel:hover{
+
+    .tel:hover {
       border: none;
-      background:rgba(0, 148, 255, 1);
+      background: rgba(0, 148, 255, 1);
     }
   }
 
@@ -249,12 +251,10 @@ $md4: 479.98;
 
 /*---------------WHY---------------*/
 .why {
-  &__container {
-  }
-
   &__body {
     position: relative;
-    padding: $_144 0;
+    @include adaptiv-value('padding-top', 144, 80, 0);
+    @include adaptiv-value('padding-bottom', 144, 80, 0);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -262,66 +262,64 @@ $md4: 479.98;
 
   &-object {
     position: absolute;
-    top: 0;
-    left: 0;
 
     &__elips1 {
       top: -23px;
       left: -246px;
-      width: 413px;
-      height: 592px;
       background: linear-gradient(90deg, #9796F0 0%, #FBC7D4 100%);
       filter: blur(200px);
       transform: rotate(-27.97deg);
       z-index: -10;
+      @include adaptiv-value('width', 413, 345, 0);
+      @include adaptiv-value('height', 592, 495, 0);
     }
 
     &__akyla {
-      top: 114px;
       left: 32px;
+      @include adaptiv-value('top', 114, 0, 0);
     }
 
     &__tigr {
-      top: 95px;
-      left: 1040px;
+      right: -30px;
       transform: rotate(13.76deg);
+      @include adaptiv-value('top', 95, 0, 0);
     }
 
     &__elips2 {
-      width: 413px;
-      height: 489.61px;
-      left: 1080px;
-      top: 527px;
+      right: -58px;
+      bottom: 36px;
       background: linear-gradient(90deg, #DAD299 0%, #B0DAB9 100%);
       filter: blur(200px);
       transform: rotate(15deg);
       z-index: -10;
+      @include adaptiv-value('width', 413, 362, 0);
+      @include adaptiv-value('height', 489.61, 430, 0);
     }
   }
 
   &__title {
     max-width: 285px;
     font-weight: 700;
-    font-size: 80px;
     line-height: 83%;
     text-align: center;
     letter-spacing: -0.015em;
     color: $black;
     margin-bottom: 40px;
+    @include adaptiv-value('font-size',80,40,0);
   }
 
   &__subtitle {
-    max-width: 426px;
     font-weight: 300;
-    font-size: 22px;
     line-height: 130%;
     text-align: center;
     letter-spacing: -0.035em;
     color: $black;
+    @include adaptiv-value('font-size',22,18,0);
+    @include adaptiv-value('max-width',426,343,0);
   }
 
   &-main {
-    padding-top: 80px;
+    @include adaptiv-value(' padding-top',80,56,0);
     display: flex;
     min-height: 605px;
     justify-content: center;
@@ -334,10 +332,10 @@ $md4: 479.98;
     }
 
     .circle-block {
-      padding-top: 80px;
+      @include adaptiv-value('width',525,343,0);
+      @include adaptiv-value('height',525,343,0);
+      @include adaptiv-value('padding-top',80,0,0);
       border-radius: 50%;
-      width: 525px;
-      height: 525px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -349,29 +347,91 @@ $md4: 479.98;
 
 
       &__icon {
-
         margin-bottom: 32px;
       }
 
       &__title {
         text-align: center;
-        max-width: 378px;
         font-weight: 500;
-        font-size: 32px;
         line-height: 130%;
         margin-bottom: 16px;
+        @include adaptiv-value('font-size',32,24,0);
+        @include adaptiv-value('max-width',378,166,0);
       }
 
       &__subtitle {
         text-align: center;
         font-family: $fontFamily2;
-        max-width: 385px;
         font-weight: 300;
-        font-size: 22px;
         line-height: 130%;
+        @include adaptiv-value('font-size',22,18,0);
+        @include adaptiv-value('max-width',365,279,0);
       }
     }
   }
+}
+
+@media screen and (max-width: $md2 + px) {
+  .why {
+    &__body {
+       display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &-object {
+      &__akyla {
+        display: none;
+      }
+      &__tigr {
+        display: none;
+      }
+    }
+
+    &__title {
+      line-height: 100%;
+    }
+
+    &__subtitle {
+    }
+
+    &-main {
+      display: flex;
+      min-height: 605px;
+      justify-content: center;
+      flex-direction: column;
+
+      & > *:not(:last-child) {
+        margin-right: 0px;
+        margin-bottom: 16px;
+      }
+
+      &__block {
+      }
+
+      .circle-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &__icon {
+          margin-bottom: 32px;
+        }
+
+        &__title {
+        }
+
+        &__subtitle {
+
+        }
+      }
+    }
+  }
+
+}
+
+@media screen and (max-width: $md4 + px) {
+
 }
 
 /*--------------END-WHY---------------*/
@@ -380,15 +440,13 @@ $md4: 479.98;
 
 .you-invest {
   position: relative;
-  min-height: 744px;
+  min-height: 344px;
   background: $black;
   z-index: -2;
 
-  &__container {
-  }
-
   &__body {
-    padding: 80px 0 32px;
+    @include adaptiv-value('padding-top', 80, 56, 0);
+    @include adaptiv-value('padding-bottom', 32, 0, 0);
     position: relative;
     color: #FFFFFF;
     display: flex;
@@ -397,14 +455,14 @@ $md4: 479.98;
     overflow: hidden;
 
     &_before {
+      text-align: center;
       position: absolute;
       width: 100%;
-      height: 463.8px;
       left: 0;
       top: 0;
-
+      @include adaptiv-value('font-size', 510, 120, 0);
+      @include adaptiv-value('height', 510, 120, 0);
       font-weight: bold;
-      font-size: 510.685px;
       line-height: 90%;
       letter-spacing: -0.02em;
       opacity: 0.05;
@@ -413,55 +471,55 @@ $md4: 479.98;
 
   &__title {
     font-weight: bold;
-    font-size: 80px;
     line-height: 83%;
     letter-spacing: -0.015em;
-    margin-bottom: 40px;
+    @include adaptiv-value('font-size', 80, 40, 0);
+    @include adaptiv-value('margin-bottom', 40, 32, 0);
   }
 
   &__subtitle {
     font-family: $fontFamily2;
     font-weight: 400;
-    font-size: 22px;
     line-height: 130%;
     text-align: center;
     letter-spacing: -0.035em;
-    max-width: 200px;
+    @include adaptiv-value('font-size', 22, 18, 0);
+    @include adaptiv-value('max-width', 200, 160, 0);
   }
 
   .invest-slider {
     position: relative;
     margin-top: 93px;
-    width: 817px;
-    height: 408.5px;
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 10;
+    @include adaptiv-value('width', 817, 325, 0);
+    @include adaptiv-value('height', 408.5, 163, 0);
 
     &__title {
-      margin-top: 156px;
-      margin-bottom: 90px;
-      max-width: 467px;
+      position: absolute;
+      margin: 40px 0;
       font-weight: 500;
-      font-size: 32px;
       line-height: 130%;
       text-align: center;
-      position: relative;
-      z-index: 10;
+      z-index: 100;
+      @include adaptiv-value('font-size', 32, 24, 0);
+      @include adaptiv-value('max-width', 467, 343, 0);
+      @include adaptiv-value('bottom', 170, 0, 0);
     }
 
     &__price {
+      margin-top: auto;
       font-family: $fontFamily2;
       position: relative;
       z-index: 10;
-      width: 258px;
       font-weight: 300;
-      font-size: 22px;
       line-height: 130%;
       text-align: center;
       padding-bottom: 16px;
-
+      @include adaptiv-value('font-size', 22, 18, 0);
+      @include adaptiv-value('width', 258, 130, 0);
 
       &:before {
         content: '';
@@ -478,8 +536,12 @@ $md4: 479.98;
     .black-elips {
       position: absolute;
       top: 0;
-      left: 0;
       z-index: 0;
+
+      svg {
+        @include adaptiv-value('width', 817, 295, 0);
+        @include adaptiv-value('height', 409, 148, 0);
+      }
     }
 
     .blue-elips {
@@ -488,35 +550,82 @@ $md4: 479.98;
       bottom: 0;
       z-index: 10;
       transform: translate(-50%, 0);
+
+      svg {
+        @include adaptiv-value('width', 39, 19, 0);
+        @include adaptiv-value('height', 39, 19, 0);
+      }
     }
 
     .star {
       position: absolute;
-      left: -23px;
-      top: -23px;
       z-index: -1;
+      @include adaptiv-value('top', -23, -15, 0);
+
+      svg {
+        @include adaptiv-value('width', 863, 325, 0);
+        @include adaptiv-value('height', 430, 162, 0);
+      }
     }
 
     .line-elips {
       position: absolute;
-      left: 0;
       top: 0;
       z-index: 1;
+
+      svg {
+        @include adaptiv-value('width', 820, 295, 0);
+        @include adaptiv-value('height', 411, 148, 0);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $md2 + px) {
+  .you-invest {
+
+    .invest-slider {
+      margin-top: 0;
+      padding-bottom: 42px;
+
+      &__title {
+        position: static;
+      }
     }
 
   }
+}
 
+@media screen and (max-width: $md4 + px) {
+
+  .you-invest {
+
+    &__body {
+
+      &_before {
+        position: static;
+        margin: 50px 0 0;
+      }
+    }
+    .invest-slider {
+      margin-top: 0;
+      padding-bottom: 42px;
+
+    }
+  }
 }
 
 /*-----------END-YouInvest--------------*/
 /*=====================================*/
 /*------------YouKeys--------------*/
+
 .your-keys {
   &__container {
   }
 
   &__body {
-    padding: 144px 0;
+    @include adaptiv-value('padding-top', 144, 80, 0);
+    @include adaptiv-value('padding-bottom', 144, 80, 0);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -532,12 +641,12 @@ $md4: 479.98;
     &__elips1 {
       z-index: -10;
       top: -137px;
-      left: 820px;
-      width: 413px;
-      height: 592px;
       filter: blur(200px);
       background: linear-gradient(90deg, #2BC0E4 0%, #EAECC6 100%);
       transform: rotate(15deg);
+      @include adaptiv-value('left', 820, 109, 0);
+      @include adaptiv-value('width', 413, 341, 0);
+      @include adaptiv-value('height', 592, 391, 0);
     }
   }
 
@@ -545,10 +654,10 @@ $md4: 479.98;
     max-width: 1000px;
     text-align: center;
     font-weight: 700;
-    font-size: 80px;
     line-height: 83%;
     letter-spacing: -0.015em;
-    margin-bottom: 40px;
+    @include adaptiv-value('font-size', 80, 40, 0);
+    @include adaptiv-value('margin-bottom', 40, 32, 0);
   }
 
   &__subtitle {
@@ -556,26 +665,26 @@ $md4: 479.98;
     text-align: center;
     font-family: $fontFamily2;
     font-weight: 300;
-    font-size: 22px;
     line-height: 130%;
     letter-spacing: -0.035em;
-    margin-bottom: 80px;
+    @include adaptiv-value('font-size', 22, 18, 0);
+    @include adaptiv-value('margin-bottom', 80, 56, 0);
   }
 
   &__cards {
     display: flex;
-    margin-bottom: 56px;
+    @include adaptiv-value('margin-bottom', 56, 48, 0);
   }
 
   .card-keys.card2 {
     margin-right: 0;
-    margin-top: 135px;
+    @include adaptiv-value('margin-top', 135, 16, 0);
 
     .card-keys__icon {
       img {
         margin: 48px auto 78px;
-        width: 260px;
-        height: 145px;
+        @include adaptiv-value('height', 145, 137, 0);
+        @include adaptiv-value('width', 260, 243, 0);
       }
     }
   }
@@ -587,21 +696,21 @@ $md4: 479.98;
   .card-keys {
     color: black;
     position: relative;
-    width: 442px;
-    height: 549px;
     border-radius: 16px;
     margin-right: 24px;
-    padding: 40px;
+    @include adaptiv-value('height', 549, 426, 0);
+    @include adaptiv-value('width', 442, 343, 0);
+    @include adaptiv-value('padding', 40, 32, 0);
 
     &:after {
       content: '';
       position: absolute;
       width: 100%;
-      height: 18px;
       left: 0;
       bottom: 0;
       background: #F47373;
       border-radius: 0 0 16px 16px;
+      @include adaptiv-value('height', 18, 16, 0);
     }
 
     &__rect img {
@@ -610,6 +719,8 @@ $md4: 479.98;
       left: 0;
       z-index: -11;
       backdrop-filter: blur(40px);
+      @include adaptiv-value('height', 549, 426, 0);
+      @include adaptiv-value('width', 442, 343, 0);
     }
 
     &__number {
@@ -629,8 +740,9 @@ $md4: 479.98;
     &__title {
       margin-top: 30px;
       font-weight: 500;
-      font-size: 48px;
       line-height: 130%;
+      @include adaptiv-value('font-size', 48, 32, 0);
+      @include adaptiv-value('margin-top', 30, 0, 0);
     }
 
     &__icon {
@@ -638,8 +750,8 @@ $md4: 479.98;
 
       img {
         margin: 48px auto;
-        width: 145px;
-        height: 145px;
+        @include adaptiv-value('height', 145, 122, 0);
+        @include adaptiv-value('width', 145, 122, 0);
       }
     }
 
@@ -647,13 +759,64 @@ $md4: 479.98;
       max-width: 338px;
       font-family: $fontFamily2;
       font-weight: 300;
-      font-size: 22px;
       line-height: 130%;
       letter-spacing: -0.035em;
+      @include adaptiv-value('font-size', 22, 18, 0);
+    }
+  }
+}
+
+@media screen and (max-width: $md2 + px) {
+  .your-keys {
+
+    &__title {
+      line-height: 100%;
     }
 
-  }
+    &__cards {
+      display: flex;
+      flex-direction: column;
+    }
 
+    .card-keys.card2 {
+      margin-right: 0;
+
+      .card-keys__icon {
+        img {
+          margin: 48px auto;
+        }
+      }
+    }
+
+    .card-keys {
+      margin-right: 0;
+
+      &__number {
+        display: none;
+      }
+
+      &__icon {
+        display: flex;
+
+        img {
+          margin: 48px auto;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $md4 + px) {
+  .your-keys {
+
+    &__title {
+      line-height: 100%;
+    }
+
+    &__subtitle {
+      max-width: 280px;
+    }
+  }
 }
 
 /*-----------END-YouKeys--------------*/
@@ -665,7 +828,7 @@ $md4: 479.98;
   }
 
   &__body {
-    padding: 0 0 144px;
+    @include adaptiv-value('padding-bottom', 144, 80, 0);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -691,13 +854,13 @@ $md4: 479.98;
   }
 
   &__title {
-    max-width: 1000px;
+    max-width: 70%;
     text-align: center;
     font-weight: 700;
-    font-size: 80px;
+    @include adaptiv-value('font-size', 80, 40, 0);
     line-height: 83%;
     letter-spacing: -0.015em;
-    margin-bottom: 80px;
+    @include adaptiv-value('margin-bottom', 80, 56, 0);
   }
 
   &__lines {
@@ -709,7 +872,8 @@ $md4: 479.98;
       display: flex;
       align-items: center;
       margin-bottom: 40px;
-      margin-left: 105px;
+      @include adaptiv-value('margin-left', 105, 0, 0);
+      min-height: 210px;
 
       &:nth-child(even) {
         margin-left: 0;
@@ -718,7 +882,13 @@ $md4: 479.98;
 
         .provide__lines-line__title {
           padding-right: 0;
-          margin-left: 140px;
+          @include adaptiv-value('margin-left', 140, 0, 0);
+        }
+
+        .provide__lines-line__icon {
+          width: 315px;
+          @include adaptiv-value('max-width', 315, 166, 0);
+
         }
       }
 
@@ -731,21 +901,154 @@ $md4: 479.98;
           font-size: 32px;
           line-height: 130%;
           margin-bottom: 16px;
+          @include adaptiv-value('font-size', 32, 24, 0);
         }
 
         .p {
           font-family: $fontFamily2;
           font-weight: 300;
-          font-size: 22px;
           line-height: 130%;
           letter-spacing: -0.035em;
           color: #000000;
+          @include adaptiv-value('font-size', 22, 18, 0);
         }
       }
 
       &__icon {
+        width: 475px;
+        @include adaptiv-value('max-width', 475, 166, 0);
 
       }
+    }
+  }
+}
+
+.icon_yellow {
+  svg {
+    @include adaptiv-value('width', 149, 112, 0);
+    @include adaptiv-value('height', 98, 72, 0);
+  }
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 50%;
+  background: #FCCB4C;
+  @include adaptiv-value('margin-left', 130, 0, 0);
+  @include adaptiv-value('width', 210, 166, 0);
+  @include adaptiv-value('height', 210, 166, 0);
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: -124px;
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: #FCCB4C;
+    z-index: -100;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 88px;
+    right: -151px;
+    width: 93px;
+    height: 93px;
+    border-radius: 50%;
+    background: #FCCB4C;
+    z-index: -100;
+  }
+}
+
+.icon_blue {
+  svg {
+    @include adaptiv-value('width', 117, 92, 0);
+    @include adaptiv-value('height', 114, 90, 0);
+  }
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 50%;
+  background: #8C73F4;
+  margin-left: auto;
+  @include adaptiv-value('width', 210, 166, 0);
+  @include adaptiv-value('height', 210, 166, 0);
+
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: -105px;
+    width: 98px;
+    height: 98px;
+    border-radius: 50%;
+    background: #8C73F4;
+    transform: translate(0, 50%);
+  }
+}
+
+@media screen and (max-width: $md2 + px) {
+  .provide__title {
+    max-width: 90%;
+  }
+}
+
+@media screen and (max-width: $md4 + px) {
+
+  .provide {
+
+    &-object {
+      &__elips1 {
+        top: 350px;
+        left: 86px;
+      }
+    }
+
+    &__title {
+      max-width: 100%;
+      line-height: 100%;
+    }
+
+    &__lines {
+      max-width: 100%;
+
+      &-line {
+        text-align: center;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        margin-bottom: 40px;
+
+        &:nth-child(even) {
+          flex-direction: column-reverse;
+          justify-content: flex-start;
+        }
+
+        &__icon {
+          margin-bottom: 24px;
+        }
+      }
+    }
+  }
+  .icon_yellow {
+
+    &:before {
+      display: none;
+    }
+
+    &:after {
+      display: none;
+    }
+  }
+  .icon_blue {
+    &:before {
+      display: none;
     }
   }
 }
