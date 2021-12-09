@@ -1,5 +1,22 @@
 //====================================================================================================
 
+.header.black {
+  position: relative;
+  z-index: 100;
+
+  .header__logo {
+    cursor: pointer;
+    display: block;
+    svg{
+      &>path:not(:last-child){
+        fill:$black !important;
+      }
+    }
+  }
+  .nav__link {
+    color: $black;
+  }
+}
 .header {
   position: relative;
   z-index: 100;

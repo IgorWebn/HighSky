@@ -59,7 +59,7 @@ html {
 }
 
 body {
-
+  background: white;
   color: $mainColor;
 
   &._lock {
@@ -120,10 +120,9 @@ body {
 //@import "datepicker";
 //@import "lightgallery";
 //@import "pagging";
-@import "popup";
+//@import "popup";
 @import "header";
 @import "footer";
-@import "home";
 //</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
 
 //<ОСНОВНОЙ БЛОК>====================================================================================================
@@ -157,45 +156,42 @@ body {
 
 .for-investors {
   min-height: 744px;
-  height: 744px;
+  height: 100vh;
   background: url("../img/ForInvestors/background1.jpg") center / cover no-repeat;
 
   &__body {
-    height: 744px;
+    height: 100vh;
     position: relative;
+    z-index: 1;
   }
 
   &__icons {
     position: absolute;
-    bottom: 26px;
-    right: 35px;
     display: flex;
     width: 154px;
     height: 46px;
     justify-content: space-between;
+    @include adaptiv-value('right', 35, 0, 0);
+    @include adaptiv-value('bottom', 26, 16, 0);
 
     a {
       height: 46px;
       width: 46px;
       border-radius: 50%;
-      border: 1px solid #FFFFFF;
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
-    .disc:hover {
-      border: none;
+    .disc {
       background: #7581F0;
     }
 
-    .twit:hover {
-      border: none;
+    .twit {
       background: rgba(91, 206, 255, 1);
     }
 
-    .tel:hover {
-      border: none;
+    .tel {
       background: rgba(0, 148, 255, 1);
     }
   }
@@ -204,15 +200,16 @@ body {
     height: 744px;
     display: flex;
     flex-direction: column;
-    padding: 182px 94px 154px;
+    padding-top: 182px;
+    @include adaptiv-value('padding-left', 94, 0, 0);
   }
 
   &__line {
     font-weight: 700;
-    font-size: 124px;
     line-height: 83%;
     letter-spacing: -0.015em;
     color: #FFFFFF;
+    @include adaptiv-value('font-size', 124, 48, 0);
   }
 
   &__line.line__1 {
@@ -222,6 +219,7 @@ body {
   &__line.line__2 {
     color: $blue;
     text-align: right;
+    margin-right: 97px;
   }
 
   &__line.line__3 {
@@ -235,6 +233,7 @@ body {
   }
 
   &__p {
+    position: absolute;
     font-family: $fontFamily2;
     font-weight: 300;
     font-size: 12px;
@@ -242,11 +241,74 @@ body {
     text-transform: uppercase;
     color: #FFFFFF;
 
-    max-width: 281px;
+    max-width: 251px;
     letter-spacing: 1px;
-    margin-left: 48px;
+    left: 45%;
+    z-index: -1;
+    @include adaptiv-value('top', 419, 280, 0);
   }
 
+}
+
+@media screen and (max-width: $md2 + px) {
+
+
+  .for-investors {
+    height: 771px;
+    background-position: 20%;
+
+    &__body {
+      height: 771px;
+    }
+
+    &__icons {
+      .disc {
+        border: none;
+        background: #7581F0;
+      }
+
+      .twit {
+        border: none;
+        background: rgba(91, 206, 255, 1);
+      }
+
+      .tel {
+        border: none;
+        background: rgba(0, 148, 255, 1);
+      }
+    }
+
+    &__lines {
+      padding-top: 196px;
+      height: auto;
+    }
+
+    &__line {
+      line-height: 100%;
+    }
+
+    &__line.line__1 {
+      padding-left: 0;
+      max-width: 55%;
+    }
+
+    &__line.line__2 {
+      text-align: start;
+    }
+
+    &__line.line__4 {
+      text-align: start;
+    }
+
+    &__p {
+      margin-top: 32px;
+      position: static;
+      max-width: 300px;
+      @media screen and (min-width: 375px) {
+        @include adaptiv-value('margin-left', 300, 0, 0);
+      }
+    }
+  }
 }
 
 /*---------------WHY---------------*/
@@ -264,14 +326,13 @@ body {
     position: absolute;
 
     &__elips1 {
-      top: -23px;
-      left: -246px;
-      background: linear-gradient(90deg, #9796F0 0%, #FBC7D4 100%);
-      filter: blur(200px);
-      transform: rotate(-27.97deg);
       z-index: -10;
-      @include adaptiv-value('width', 413, 345, 0);
-      @include adaptiv-value('height', 592, 495, 0);
+       @include adaptiv-value('left', -500, -300, 0);
+       @include adaptiv-value('top', -400, -300, 0);
+      img{
+        @include adaptiv-value('width', 1260, 1050, 0);
+        @include adaptiv-value('height', 1360,1133, 0);
+      }
     }
 
     &__akyla {
@@ -286,14 +347,13 @@ body {
     }
 
     &__elips2 {
-      right: -58px;
-      bottom: 36px;
-      background: linear-gradient(90deg, #DAD299 0%, #B0DAB9 100%);
-      filter: blur(200px);
-      transform: rotate(15deg);
       z-index: -10;
-      @include adaptiv-value('width', 413, 362, 0);
-      @include adaptiv-value('height', 489.61, 430, 0);
+      @include adaptiv-value('right', -460, -300, 0);
+      @include adaptiv-value('bottom', -400, -300, 0);
+      img{
+        @include adaptiv-value('width', 1220, 1000, 0);
+        @include adaptiv-value('height', 1286,1070, 0);
+      }
     }
   }
 
@@ -305,7 +365,7 @@ body {
     letter-spacing: -0.015em;
     color: $black;
     margin-bottom: 40px;
-    @include adaptiv-value('font-size',80,40,0);
+    @include adaptiv-value('font-size', 80, 40, 0);
   }
 
   &__subtitle {
@@ -314,12 +374,12 @@ body {
     text-align: center;
     letter-spacing: -0.035em;
     color: $black;
-    @include adaptiv-value('font-size',22,18,0);
-    @include adaptiv-value('max-width',426,343,0);
+    @include adaptiv-value('font-size', 22, 18, 0);
+    @include adaptiv-value('max-width', 426, 343, 0);
   }
 
   &-main {
-    @include adaptiv-value(' padding-top',80,56,0);
+    @include adaptiv-value(' padding-top', 80, 56, 0);
     display: flex;
     min-height: 605px;
     justify-content: center;
@@ -328,53 +388,51 @@ body {
       margin-right: 24px;
     }
 
-    &__block {
-    }
 
-    .circle-block {
-      @include adaptiv-value('width',525,343,0);
-      @include adaptiv-value('height',525,343,0);
-      @include adaptiv-value('padding-top',80,0,0);
-      border-radius: 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+  }
+}
 
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      box-sizing: border-box;
-      backdrop-filter: blur(40px);
+.circle-block {
+  @include adaptiv-value('width', 525, 343, 0);
+  @include adaptiv-value('height', 525, 343, 0);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
 
-      &__icon {
-        margin-bottom: 32px;
-      }
+  &__icon {
+    margin-bottom: 32px;
 
-      &__title {
-        text-align: center;
-        font-weight: 500;
-        line-height: 130%;
-        margin-bottom: 16px;
-        @include adaptiv-value('font-size',32,24,0);
-        @include adaptiv-value('max-width',378,166,0);
-      }
+  }
 
-      &__subtitle {
-        text-align: center;
-        font-family: $fontFamily2;
-        font-weight: 300;
-        line-height: 130%;
-        @include adaptiv-value('font-size',22,18,0);
-        @include adaptiv-value('max-width',365,279,0);
-      }
-    }
+  &__title {
+    text-align: center;
+    font-weight: 500;
+    line-height: 130%;
+    margin-bottom: 16px;
+    @include adaptiv-value('font-size', 32, 24, 0);
+    @include adaptiv-value('max-width', 378, 166, 0);
+  }
+
+  &__subtitle {
+    text-align: center;
+    font-family: $fontFamily2;
+    font-weight: 300;
+    line-height: 130%;
+    @include adaptiv-value('font-size', 22, 18, 0);
+    @include adaptiv-value('max-width', 365, 279, 0);
   }
 }
 
 @media screen and (max-width: $md2 + px) {
   .why {
     &__body {
-       display: flex;
+      display: flex;
       flex-direction: column;
       align-items: center;
     }
@@ -383,6 +441,7 @@ body {
       &__akyla {
         display: none;
       }
+
       &__tigr {
         display: none;
       }
@@ -392,9 +451,6 @@ body {
       line-height: 100%;
     }
 
-    &__subtitle {
-    }
-
     &-main {
       display: flex;
       min-height: 605px;
@@ -402,35 +458,35 @@ body {
       flex-direction: column;
 
       & > *:not(:last-child) {
-        margin-right: 0px;
+        margin-right: 0;
         margin-bottom: 16px;
-      }
-
-      &__block {
       }
 
       .circle-block {
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
+        position: relative;
 
         &__icon {
-          margin-bottom: 32px;
-        }
+          margin-bottom: 0;
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          opacity: 0.1;
+          z-index: -5;
 
-        &__title {
-        }
-
-        &__subtitle {
-
+          img {
+            height: 70%;
+          }
         }
       }
     }
   }
-
-}
-
-@media screen and (max-width: $md4 + px) {
 
 }
 
@@ -607,6 +663,7 @@ body {
         margin: 50px 0 0;
       }
     }
+
     .invest-slider {
       margin-top: 0;
       padding-bottom: 42px;
@@ -620,8 +677,6 @@ body {
 /*------------YouKeys--------------*/
 
 .your-keys {
-  &__container {
-  }
 
   &__body {
     @include adaptiv-value('padding-top', 144, 80, 0);
@@ -635,18 +690,16 @@ body {
 
   &-object {
     position: absolute;
-    top: 0;
-    left: 0;
+
 
     &__elips1 {
       z-index: -10;
-      top: -137px;
-      filter: blur(200px);
-      background: linear-gradient(90deg, #2BC0E4 0%, #EAECC6 100%);
-      transform: rotate(15deg);
-      @include adaptiv-value('left', 820, 109, 0);
-      @include adaptiv-value('width', 413, 341, 0);
-      @include adaptiv-value('height', 592, 391, 0);
+      @include adaptiv-value('left', 200, 0, 0);
+      @include adaptiv-value('top', -537, -300, 0);
+      img{
+        @include adaptiv-value('width', 1420, 1000, 0);
+        @include adaptiv-value('height', 1486,1070, 0);
+      }
     }
   }
 
@@ -682,9 +735,8 @@ body {
 
     .card-keys__icon {
       img {
-        margin: 48px auto 78px;
-        @include adaptiv-value('height', 145, 137, 0);
-        @include adaptiv-value('width', 260, 243, 0);
+        @include adaptiv-value('height', 217, 145, 0);
+        @include adaptiv-value('width', 244, 160, 0);
       }
     }
   }
@@ -698,6 +750,8 @@ body {
     position: relative;
     border-radius: 16px;
     margin-right: 24px;
+    display: flex;
+    flex-direction: column;
     @include adaptiv-value('height', 549, 426, 0);
     @include adaptiv-value('width', 442, 343, 0);
     @include adaptiv-value('padding', 40, 32, 0);
@@ -718,7 +772,6 @@ body {
       top: 0;
       left: 0;
       z-index: -11;
-      backdrop-filter: blur(40px);
       @include adaptiv-value('height', 549, 426, 0);
       @include adaptiv-value('width', 442, 343, 0);
     }
@@ -738,6 +791,7 @@ body {
     }
 
     &__title {
+      white-space: nowrap;
       margin-top: 30px;
       font-weight: 500;
       line-height: 130%;
@@ -746,17 +800,18 @@ body {
     }
 
     &__icon {
+      flex: 1 1 auto;
       display: flex;
 
       img {
-        margin: 48px auto;
+        margin:  auto;
         @include adaptiv-value('height', 145, 122, 0);
         @include adaptiv-value('width', 145, 122, 0);
       }
     }
 
     &__subtitle {
-      max-width: 338px;
+      max-width: 360px;
       font-family: $fontFamily2;
       font-weight: 300;
       line-height: 130%;
@@ -808,7 +863,12 @@ body {
 
 @media screen and (max-width: $md4 + px) {
   .your-keys {
-
+    &-object {
+      &__elips1 {
+        left: -250px;
+        top:-450px;
+      }
+    }
     &__title {
       line-height: 100%;
     }
@@ -843,13 +903,11 @@ body {
 
     &__elips1 {
       z-index: -10;
-      top: 350px;
-      left: -30px;
-      width: 413px;
-      height: 592px;
-      filter: blur(250px);
-      background: linear-gradient(90deg, #9796F0 0%, #FBC7D4 100%);
-      transform: rotate(45deg);
+      @include adaptiv-value('left', -500, -300, 0);
+      img{
+        @include adaptiv-value('width', 1420, 1000, 0);
+        @include adaptiv-value('height', 1486,1070, 0);
+      }
     }
   }
 
@@ -924,9 +982,9 @@ body {
 }
 
 .icon_yellow {
-  svg {
-    @include adaptiv-value('width', 149, 112, 0);
-    @include adaptiv-value('height', 98, 72, 0);
+  img {
+    @include adaptiv-value('width', 152, 118, 0);
+    @include adaptiv-value('height', 152, 118, 0);
   }
 
   display: flex;
@@ -965,9 +1023,9 @@ body {
 }
 
 .icon_blue {
-  svg {
-    @include adaptiv-value('width', 117, 92, 0);
-    @include adaptiv-value('height', 114, 90, 0);
+  img {
+    @include adaptiv-value('width', 131, 105, 0);
+    @include adaptiv-value('height', 100, 80, 0);
   }
 
   display: flex;
@@ -1002,13 +1060,6 @@ body {
 @media screen and (max-width: $md4 + px) {
 
   .provide {
-
-    &-object {
-      &__elips1 {
-        top: 350px;
-        left: 86px;
-      }
-    }
 
     &__title {
       max-width: 100%;
@@ -1057,3 +1108,11 @@ body {
 
 
 /*---END-FOR_INVESTORS------*/
+
+/*----FOR_Teams------*/
+@import "forTeams";
+/*---END-FOR_Teams------*/
+
+/*----FOR_Players------*/
+@import "forPlayers";
+/*---END-FOR_Players------*/
