@@ -15,36 +15,26 @@
 
   &__elips1 {
     position: absolute;
-    top: -10px;
-    left: -20px;
-    background: linear-gradient(90deg, #2BC0E4 0%, #EAECC6 100%);
-    background: -o-linear-gradient(90deg, #2BC0E4 0%, #EAECC6 100%);
-    background: -webkit-linear-gradient(90deg, #2BC0E4 0%, #EAECC6 100%);
-    background: -ms-linear-gradient(90deg, #2BC0E4 0%, #EAECC6 100%);
-    background: -moz-linear-gradient(90deg, #2BC0E4 0%, #EAECC6 100%);
-    -ms-filter: blur(200px);
-    filter: blur(200px);
-    transform: rotate(15deg);
-    z-index: -10;
-    @include adaptiv-value('width', 413, 370, 0);
-    @include adaptiv-value('height', 588, 444, 0);
+    z-index: -5;
+    top: -400px;
+    left: -300px;
+
+    img {
+      @include adaptiv-value('width', 1208, 1000, 0);
+      @include adaptiv-value('height', 1380, 1070, 0);
+    }
   }
 
   &__elips2 {
     position: absolute;
-    bottom: 20px;
-    right: -51px;
-    background: linear-gradient(90deg, #DAD299 0%, #B0DAB9 100%);
-    background: -o-linear-gradient(90deg, #DAD299 0%, #B0DAB9 100%);
-    background: -webkit-linear-gradient(90deg, #DAD299 0%, #B0DAB9 100%);
-    background: -ms-linear-gradient(90deg, #DAD299 0%, #B0DAB9 100%);
-    background: -moz-linear-gradient(90deg, #DAD299 0%, #B0DAB9 100%);
-    -ms-filter: blur(200px);
-    filter: blur(200px);
-    transform: rotate(15deg);
-    z-index: -10;
-    @include adaptiv-value('width', 413, 358, 0);
-    @include adaptiv-value('height', 489, 390, 0);
+    bottom: -400px;
+    right: -400px;
+    z-index: -5;
+
+    img {
+      @include adaptiv-value('width', 1208, 1000, 0);
+      @include adaptiv-value('height', 1380, 1070, 0);
+    }
   }
 
   &-object {
@@ -79,7 +69,7 @@
     color: $black;
     text-align: center;
     @include adaptiv-value('font-size', 124, 48, 0);
-    @include adaptiv-value(' max-width', 1070, 340, 0);
+    @include adaptiv-value(' max-width', 1080, 340, 0);
     @include adaptiv-value(' margin-bottom', 56, 32, 0);
 
     span {
@@ -110,19 +100,37 @@
 
 @media screen and (max-width: $md4+px) {
   .for-players {
+    &__body {
+      height: 770px;
+    }
+
     &__subtitle {
       text-align: left;
     }
 
     &__elips1 {
-      top: -220px;
-      left: -200px;
-
+      top: -500px;
+      left: -400px;
     }
 
     &__elips2 {
-      bottom: -200px;
-      right: -200px;
+      bottom: -400px;
+      right: -400px;
+    }
+
+    &-object {
+      position: absolute;
+      z-index: -1;
+
+      &__egg {
+        top: 66px;
+        right: 20px;
+      }
+
+      &__eggs {
+        bottom: 10px;
+        left: 0;
+      }
     }
   }
 }
@@ -144,20 +152,15 @@
 
   &__elips1 {
     position: absolute;
-    top: 365px;
-    left: 322px;
-    border-radius: 50%;
-    background: linear-gradient(90deg, #EF32D9 0%, #89FFFD 100%);
-    background: -o-linear-gradient(90deg, #EF32D9 0%, #89FFFD 100%);
-    background: -webkit-linear-gradient(90deg, #EF32D9 0%, #89FFFD 100%);
-    background: -ms-linear-gradient(90deg, #EF32D9 0%, #89FFFD 100%);
-    background: -moz-linear-gradient(90deg, #EF32D9 0%, #89FFFD 100%);
-    -ms-filter: blur(230px);
-    filter: blur(230px);
-    transform: rotate(225deg);
     z-index: -5;
-    @include adaptiv-value('height', 413, 370, 0);
-    @include adaptiv-value('width', 723, 540, 0);
+    top: -100px;
+    left: 100px;
+
+    img {
+      opacity: 0.5;
+      @include adaptiv-value('width', 1400, 1000, 0);
+      @include adaptiv-value('height', 1400, 1070, 0);
+    }
   }
 
   &__title {
@@ -282,6 +285,11 @@
   .what-need {
     &__body {
       padding-bottom: 0;
+    }
+
+    &__elips1 {
+      top: 100px;
+      left: -500px;
     }
 
     &__slider {
@@ -623,6 +631,30 @@
     @include adaptiv-value('padding-top', 184, 96, 0);
   }
 
+  &__elips1 {
+    position: absolute;
+    z-index: -10;
+    top: -900px;
+    right: -500px;
+
+    img {
+      @include adaptiv-value('width', 1381, 1000, 0);
+      @include adaptiv-value('height', 1495, 1070, 0);
+    }
+  }
+
+  &__elips2 {
+    position: absolute;
+    z-index: -10;
+    top: -150px;
+    left: -400px;
+
+    img {
+      @include adaptiv-value('width', 1515, 1000, 0);
+      @include adaptiv-value('height', 1515, 1070, 0);
+    }
+  }
+
   &__title {
     text-align: center;
     font-weight: 700;
@@ -743,6 +775,17 @@
     &__line {
       display: none;
     }
+
+    &__elips1 {
+      top: -600px;
+      right: -500px;
+    }
+
+    &__elips2 {
+      top: unset;
+      bottom: -450px;
+      left: -450px;
+    }
   }
 }
 
@@ -767,6 +810,18 @@
     flex-direction: column;
     align-items: center;
     padding-top: 96px;
+  }
+
+  &__elips1 {
+    position: absolute;
+    z-index: -10;
+    bottom: -800px;
+    left: -500px;
+
+    img {
+      @include adaptiv-value('width', 1381, 1000, 0);
+      @include adaptiv-value('height', 1495, 1070, 0);
+    }
   }
 
   &__title {
@@ -868,6 +923,11 @@
       line-height: 100%;
     }
 
+    &__elips1 {
+      bottom: -200px;
+      left: -250px;
+    }
+
     &__resources {
       display: flex;
       flex-direction: column;
@@ -925,7 +985,7 @@
 
 @media screen and (min-width: 1440 + px) {
 
-  .road-of-love{
+  .road-of-love {
     &__resources {
       display: flex;
 
@@ -944,8 +1004,8 @@
 
       & > *:nth-child(3) {
         position: absolute;
-        @include adaptiv-value('right',150,0,0);
-        @include adaptiv-value('top', 402,270, 0);
+        @include adaptiv-value('right', 150, 0, 0);
+        @include adaptiv-value('top', 402, 270, 0);
       }
     }
   }
@@ -971,6 +1031,30 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  &__elips1 {
+    position: absolute;
+    z-index: -10;
+    top: -500px;
+    right: -600px;
+
+    img {
+      @include adaptiv-value('width', 1415, 1000, 0);
+      @include adaptiv-value('height', 1415, 1070, 0);
+    }
+  }
+
+  &__elips2 {
+    position: absolute;
+    z-index: -10;
+    bottom: -600px;
+    left: -450px;
+
+    img {
+      @include adaptiv-value('width', 1430, 1000, 0);
+      @include adaptiv-value('height', 1430, 1070, 0);
+    }
   }
 
   &__title {
@@ -1019,6 +1103,7 @@
 #pre-footer2 {
   top: 20%;
   right: 5%;
+
   img {
     transform: rotate(-15deg);
     @include adaptiv-value('width', 440, 300, 0);
@@ -1037,6 +1122,15 @@
 }
 
 @media screen and (max-width: $md2 + px) {
+  .pre-footer {
+    &__elips1 {
+      display: none;
+    }
+    &__elips2 {
+      bottom: -300px;
+      left: -450px;
+    }
+  }
 
   #pre-footer1 {
     display: block;

@@ -23,19 +23,16 @@
 
     &__elips1 {
       z-index: -10;
-      top: unset;
-      bottom: -51px;
-      left: -85px;
-      width: 413px;
-      height: 387px;
-      filter: blur(250px);
-      background: linear-gradient(90deg, #FFAFBD 0%, #FFC3A0 100%);
-      transform: rotate(30deg);
-      background: -o-linear-gradient(90deg, #FFAFBD 0%, #FFC3A0 100%);
-      background: -webkit-linear-gradient(90deg, #FFAFBD 0%, #FFC3A0 100%);
-      background: -ms-linear-gradient(90deg, #FFAFBD 0%, #FFC3A0 100%);
-      background: -moz-linear-gradient(90deg, #FFAFBD 0%, #FFC3A0 100%);
-      -ms-filter: blur(250px);
+      bottom: -500px;
+      left:-400px;
+      .img_for_investors{
+        display: none;
+      }
+      .img_for_teams{
+        display: block;
+        @include adaptiv-value('width', 1208, 1000, 0);
+        @include adaptiv-value('height', 1195,1070, 0);
+      }
     }
   }
 }
@@ -48,6 +45,9 @@
 
     &__elips1 {
       z-index: -10;
+      .img_for_teams{
+        display: none;
+      }
       img{
         width:1420px ;
         height:1486px ;
@@ -156,14 +156,13 @@
   .footer.forTeams {
     .footer-object {
       &__elips1 {
-        bottom: -120px;
+        bottom: -400px;
       }
     }
   }
 
 
   .footer {
-
 
     &-object {
       &__elips1 {
@@ -205,7 +204,6 @@
 
     }
   }
-
 }
 
 @media (max-width: $md3+px) {
