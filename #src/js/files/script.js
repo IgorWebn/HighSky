@@ -138,3 +138,20 @@ function round_slider_tune(event) {
 
 
 
+    let $lineLeft = document.querySelectorAll('.js-decor-line');
+
+    const translateLeftX = gsap.timeline({
+        scrollTrigger: {
+            trigger: 'html',
+            scrub: 2,
+            start: 'center center ',
+          //  markers:true,
+            end: '+=3000',
+        }
+    }).fromTo($lineLeft, {
+        x: 1000
+    }, {
+        x: 0,
+        duration: 2,
+        ease: 'none'
+    })
