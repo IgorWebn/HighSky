@@ -14,6 +14,7 @@ let rename = require("gulp-rename");
 let fileinclude = require("gulp-file-include");
 let clean_css = require("gulp-clean-css");
 let newer = require('gulp-newer');
+let concat = require('gulp-concat');
 
 let version = require('gulp-version-number');
 
@@ -118,6 +119,16 @@ function js() {
 		.pipe(dest(path.build.js))
 		.pipe(browsersync.stream());
 }
+function jsFrameworks() {
+	return src(['node_modules/gsap/dist/gsap.min.js','node_modules/gsap/dist/ScrollTrigger.min.js'])
+
+		.pipe(
+			concat('gsap.min.js')
+		)
+		.pipe(dest(path.build.js))
+		.pipe(browsersync.stream());
+}
+
 function images() {
 	return src(path.src.images)
 		.pipe(newer(path.build.images))
@@ -236,6 +247,7 @@ function jsBuild() {
 		.pipe(dest(path.build.js))
 		.pipe(browsersync.stream());
 }
+
 function imagesBuild() {
 	return src(path.src.images)
 		//.pipe(newer(path.build.images))
@@ -299,7 +311,7 @@ function htmlBuild() {
 		.pipe(browsersync.stream());
 }
 let fontsBuild = gulp.series(fonts_otf, fonts, fontstyle);
-let buildDev = gulp.series(clean, gulp.parallel(fontsBuild, copyFolders, json, html, css, js, favicon, images));
+let buildDev = gulp.series(clean, gulp.parallel(fontsBuild, copyFolders,jsFrameworks, json, html, css, js, favicon, images));
 let watch = gulp.series(buildDev, gulp.parallel(watchFiles, browserSync));
 let build = gulp.parallel(htmlBuild, cssBuild, jsBuild, imagesBuild);
 
