@@ -126,7 +126,7 @@ function round_slider_tune(event) {
         }
     }
     if( Math.abs(angle)<=90) {
-        styleafter.innerHTML = ".round-slider_after {transform: rotate(" + -angle + "deg); height: " + event.target.offsetHeight / 2 + "px;}";
+        styleafter.innerHTML = ".round-slider_after {transform: rotate(" + -angle + "deg); ";
     }
     if( Math.abs(angle)<=88){
          const invest_slider__title=document.querySelector('.invest-slider__title')
