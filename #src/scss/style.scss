@@ -148,6 +148,16 @@ body {
   @include adaptiv-value('height', 58, 54, 0);
 }
 
+@keyframes line {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
 //===================================================================================================================================
 
 //</ОСНОВНОЙ БЛОК>====================================================================================================
@@ -311,6 +321,61 @@ body {
   }
 }
 
+/*-------animation---------*/
+
+
+@keyframes fillAction {
+  0% {
+    transform: translate(0, 150px);
+  }
+  100% {
+    transform: translate(0, -15px);
+  }
+}
+@keyframes fillActionNo {
+  0% {
+    transform: translate(0, 50px);
+  }
+  100% {
+    transform: translate(0, 300px);
+  }
+}
+@keyframes waveAction {
+  0% {
+    transform: translate(-150px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+#banner {
+  position: absolute;
+  z-index: -3;
+  border-radius: 50%;
+  width: 125px;
+  height: 125px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0) scale(4);
+}
+#banner .fill {
+  animation-name: fillActionNo;
+  animation-timing-function: cubic-bezier(.2, .6, .8, .4);
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  border-radius: 50%;
+}
+#banner #waveShape {
+  animation-name: waveAction;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-duration: 1s;
+  width:300px;
+  height: 0;
+  fill: #0094FF;
+}
+
 /*---------------WHY---------------*/
 .why {
   &__body {
@@ -329,13 +394,21 @@ body {
       z-index: -10;
        @include adaptiv-value('left', -500, -300, 0);
        @include adaptiv-value('top', -400, -300, 0);
-      img{
+      /*img{
+        @include adaptiv-value('width', 1260, 1050, 0);
+        @include adaptiv-value('height', 1360,1133, 0);
+      } */
+      svg{
         @include adaptiv-value('width', 1260, 1050, 0);
         @include adaptiv-value('height', 1360,1133, 0);
       }
     }
 
     &__akyla {
+      img{
+        @include adaptiv-value('width', 302, 200, 0);
+        @include adaptiv-value('height', 258,158, 0);
+      }
       left: 32px;
       @include adaptiv-value('top', 114, 0, 0);
     }
@@ -393,6 +466,43 @@ body {
 }
 
 .circle-block {
+
+  @media (hover: hover) {
+    &:hover {
+      #banner {
+        position: absolute;
+        z-index: -3;
+        border-radius: 50%;
+        width: 125px;
+        height: 125px;
+        overflow: hidden;
+        backface-visibility: hidden;
+        transform: translate3d(0, 0, 0) scale(4);
+      }
+      #banner .fill {
+        animation-name: fillAction;
+        animation-iteration-count: 0.7;
+        animation-timing-function: cubic-bezier(.2, .6, .8, .4);
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        border-radius: 50%;
+        padding:-5px;
+      }
+      #banner #waveShape {
+        animation-name: waveAction;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-duration: 2s;
+        width:300px;
+        height: 0;
+        fill: #0094FF;
+      }
+      color:white;
+      transition: color 0.5s ease 0.2s;
+    }
+  }
+  transition: color 0.5s ease ;
+  position: relative;
   @include adaptiv-value('width', 525, 343, 0);
   @include adaptiv-value('height', 525, 343, 0);
   border-radius: 50%;
@@ -494,11 +604,64 @@ body {
 
 /*------------YouInvest--------------*/
 
+
+/*Slider*/
+
+.round-slider {
+  display: grid;
+  position: absolute;
+  justify-self: center;
+  align-self: center;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+  left: 50%;
+  transform: translate(-50%,50%);
+  @include adaptiv-value('bottom', 32, 18, 0);
+  @include adaptiv-value('width', 835, 300, 0);
+  @include adaptiv-value('height', 825, 295, 0);
+  z-index: 10000;
+  @media (min-width: 1440px){
+    @include adaptiv-value('width', 825, 295, 0);
+  }
+}
+.round-slider .selection {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  grid-row: 1;
+  grid-column: 1;
+  justify-self: center;
+  align-self: center;
+  pointer-events: none;
+  border: 10px solid #0094FF;
+  clip-path: polygon( 0% 52%,0% 32%, 50% 50%);
+ }
+.round-slider_after {
+  display: block;
+  width: 3px;
+  @include adaptiv-value('height', 412.5, 147.5, 0);
+  position: absolute;
+  left: calc(50% - 1px);
+  @include adaptiv-value('bottom', 32, 18, 0);
+  transform-origin: 1px 100%;
+  transform: rotate(-70deg);
+}
+.round-slider_after:after {
+  display: block;
+  content: "";
+  @include adaptiv-value('width', 39, 19, 0);
+  @include adaptiv-value('height', 39, 19, 0);
+  border-radius: 50%;
+  background-color: #0094FF;
+  transform: translate(-50%,-40%);
+}
+
 .you-invest {
   position: relative;
   min-height: 344px;
-  background: $black;
-  z-index: -2;
+  overflow: hidden;
+
 
   &__body {
     @include adaptiv-value('padding-top', 80, 56, 0);
@@ -508,7 +671,17 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: hidden;
+    background: $black;
+    z-index: -2;
+    &:before{
+      content: '';
+      position: absolute;
+      width: 100vw;
+      height: 100%;
+      background: $black;
+      z-index: -100;
+      top:0;
+    }
 
     &_before {
       text-align: center;
@@ -550,7 +723,7 @@ body {
     flex-direction: column;
     align-items: center;
     z-index: 10;
-    @include adaptiv-value('width', 817, 325, 0);
+    @include adaptiv-value('width', 825, 295, 0);
     @include adaptiv-value('height', 408.5, 163, 0);
 
     &__title {
@@ -630,12 +803,13 @@ body {
       z-index: 1;
 
       svg {
-        @include adaptiv-value('width', 820, 295, 0);
-        @include adaptiv-value('height', 411, 148, 0);
+        @include adaptiv-value('width', 825, 295, 0);
+        @include adaptiv-value('height', 412.5, 147.5, 0);
       }
     }
   }
 }
+
 
 @media screen and (max-width: $md2 + px) {
   .you-invest {
@@ -669,6 +843,9 @@ body {
       padding-bottom: 42px;
 
     }
+  }
+  .round-slider .selection {
+    border: 5px solid #0094FF;
   }
 }
 
@@ -1116,3 +1293,7 @@ body {
 /*----FOR_Players------*/
 @import "forPlayers";
 /*---END-FOR_Players------*/
+
+/*----FOR_404------*/
+@import "errorPage";
+/*---END-FOR_404------*/

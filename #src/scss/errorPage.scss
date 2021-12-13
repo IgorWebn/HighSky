@@ -1,0 +1,160 @@
+//====================================================================================================
+
+/*-------------error-Page----------*/
+
+
+.error-page {
+  .join-us {
+    top: 60%;
+    left: 30%;
+  }
+
+  &__body {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  &__obj1,
+  &__obj2,
+  &__obj3,
+  &__obj4 {
+    position: absolute;
+  }
+
+  &__obj1 {
+    @include adaptiv-value('top', 124, 70, 0);
+    @include adaptiv-value('left', 100, 0, 0);
+
+    img {
+      @include adaptiv-value('width', 380, 320, 0);
+      @include adaptiv-value('height', 328, 280, 0);
+    }
+  }
+
+  &__obj2 {
+    @include adaptiv-value('bottom', 74, 10, 0);
+    @include adaptiv-value('left', 100, 0, 0);
+
+    img {
+      @include adaptiv-value('width', 473, 270, 0);
+      @include adaptiv-value('height', 401, 220, 0);
+    }
+  }
+
+  &__obj3 {
+    @include adaptiv-value('top', 80, 0, 0);
+    @include adaptiv-value('right', 100, 0, 0);
+
+    img {
+      @include adaptiv-value('width', 453, 361, 0);
+      @include adaptiv-value('height', 417, 331, 0);
+    }
+  }
+
+  &__obj4 {
+    @include adaptiv-value('bottom', 74, 10, 0);
+    @include adaptiv-value('right', 100, 0, 0);
+
+    img {
+      @include adaptiv-value('width', 380, 240, 0);
+      @include adaptiv-value('height', 360, 220, 0);
+    }
+  }
+
+  &__elips1 {
+    position: absolute;
+    z-index: -10;
+    top: -400px;
+    right: -400px;
+
+    img {
+      @include adaptiv-value('width', 1208, 1000, 0);
+      @include adaptiv-value('height', 1380, 1070, 0);
+    }
+  }
+
+  &__elips2 {
+    position: absolute;
+    bottom: -500px;
+    left: -300px;
+    z-index: -10;
+
+    img {
+      @include adaptiv-value('width', 1208, 1000, 0);
+      @include adaptiv-value('height', 1380, 1070, 0);
+    }
+  }
+
+  &__title {
+    position: relative;
+    font-weight: 700;
+    line-height: 83%;
+    letter-spacing: -0.015em;
+    @include adaptiv-value('font-size', 124, 64, 0);
+
+    &-line {
+      position: absolute;
+      animation: line infinite 20s linear;
+
+      img {
+        @include adaptiv-value('width', 535, 344, 0);
+        @include adaptiv-value('height', 535, 344, 0);
+      }
+    }
+  }
+
+}
+
+.error-page__icons {
+  display: none;
+}
+
+@media screen and (max-width: $md2+px) {
+  .error-page__icons {
+    display: flex;
+  }
+
+  .error-page {
+    .join-us {
+      top: 60%;
+      @include adaptiv-value('left', 400, 0, 0);
+    }
+
+    &__obj1 {
+      top: 10px;
+      left: -80px;
+      transform: rotate(15deg);
+    }
+
+    &__obj2 {
+      display: none;
+    }
+
+    &__obj3 {
+      top: unset;
+      bottom: -50px;
+      right: -100px;
+    }
+
+    &__obj4 {
+      display: none;
+    }
+
+    &__elips1 {
+      top: -400px;
+      right: -400px;
+    }
+
+    &__elips2 {
+      bottom: -500px;
+      left: -300px;
+    }
+  }
+}
+
+/*-------------END-error-Page----------*/
+

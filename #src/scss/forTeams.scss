@@ -80,6 +80,7 @@
   }
 
   .circle-block {
+
     &__icon.icon1{
       img {
         @include adaptiv-value('width', 226, 138, 0);
@@ -260,10 +261,19 @@
   &__main {
     &-icon {
       position: relative;
+      display: flex;
+      justify-content:center ;
+      align-items: center;
 
-      img {
+      .icon-on{
         @include adaptiv-value('width', 498, 331, 0);
         @include adaptiv-value('height', 495, 330, 0);
+        animation: line infinite 20s linear;
+      }
+      .icon-in{
+        position: absolute;
+        @include adaptiv-value('width', 300, 185, 0);
+        @include adaptiv-value('height', 300, 185, 0);
       }
     }
 
@@ -294,30 +304,29 @@
       right: 94px;
     }
 
-    .join-us {
-      display: block;
-      cursor: pointer;
-      position: absolute;
-      font-family: $fontFamily2;
-      font-weight: 500;
-      line-height: 100%;
-      text-transform: uppercase;
-      color: #FFFFFF;
-      box-shadow: 0 0 30px rgba(0, 148, 255, 0.6);
-      background: #0094FF;
-      border-radius: 50%;
-      @include adaptiv-value('padding-top', 85, 72, 0);
-      @include adaptiv-value('padding-left', 32, 28, 0);
-      @include adaptiv-value('font-size', 16, 14, 0);
-      @include adaptiv-value('width', 154, 132, 0);
-      @include adaptiv-value('height', 154, 132, 0);
-      top: 698px;
-      left: 444px;
-    }
+
   }
 }
-
-
+.join-us {
+  display: block;
+  cursor: pointer;
+  position: absolute;
+  font-family: $fontFamily2;
+  font-weight: 500;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  box-shadow: 0 0 30px rgba(0, 148, 255, 0.6);
+  background: #0094FF;
+  border-radius: 50%;
+  @include adaptiv-value('padding-top', 85, 72, 0);
+  @include adaptiv-value('padding-left', 32, 28, 0);
+  @include adaptiv-value('font-size', 16, 14, 0);
+  @include adaptiv-value('width', 154, 132, 0);
+  @include adaptiv-value('height', 154, 132, 0);
+  top: 698px;
+  left: 444px;
+}
 @media (max-width: $md2+px) {
 
   .for-teams {

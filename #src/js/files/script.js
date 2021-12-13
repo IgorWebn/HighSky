@@ -1,4 +1,5 @@
-if (document.querySelector('.for-managers') || document.querySelector('.for-players')) {
+if (document.querySelector('.for-managers') || document.querySelector('.for-players')||
+    document.querySelector('.error-page')) {
     document.querySelector('.header').classList.add('black')
 } else {
     document.querySelector('.header').classList.remove('black')
@@ -48,3 +49,92 @@ window.addEventListener('resize',()=>{
 })
     slider()
 }
+
+
+/*----------Slider---------*/
+
+const sliders = document.getElementsByClassName("round-slider");
+
+for (let i = 0; i < sliders.length; i++) {
+    sliders[i].addEventListener("click", round_slider_tune, false);
+    sliders[i].addEventListener("mousedown", function(event) {
+        sliders[i].onmousemove = function(event) {
+            if (event.buttons == 1 || event.buttons == 3) {
+                round_slider_tune(event);
+            }
+        }
+    });
+}
+
+function round_slider_tune(event) {
+    let eventDoc = (event.target && event.target.ownerDocument) || document,
+        doc = eventDoc.documentElement,
+        body = eventDoc.body;
+    event.pageX = event.clientX +
+        (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
+        (doc && doc.clientLeft || body && body.clientLeft || 0);
+
+    let output = event.target.getElementsByClassName("selection")[0],
+        styleafter = document.head.appendChild(document.createElement("style")),
+        elpos = event.target.getBoundingClientRect(),
+        cX = elpos.width / 2,
+        cY = elpos.height / 2,
+        eX = event.pageX - elpos.left,
+        eY = event.clientY - elpos.top,
+        dX = 0,
+        dY = 0,
+        angle = Math.atan2(cX - eX, cY - eY) * (180 / Math.PI),
+        value = 2;
+
+    if (Math.abs(eX - cX) >= Math.abs(eY - cY)) { // 110 90
+        dX = 150 / 2 + Math.sign(eX - cX) * 150 / 2;
+        dY = 150 / 2 + (eY - cY) / Math.abs(eX - cX) * 150 / 2;
+    } else {
+        dX = 150 / 2 + (eX - cX) / Math.abs(eY - cY) * 150 / 2;
+        dY = 150 / 2 + Math.sign(eY - cY) * 150 / 2;
+    }
+    dX = Math.round(dX / 150 * 100)
+    dY = Math.round(dY / 150 * 100)
+
+    if(
+        dX == 0 && 0 <= dY && dY <= 50
+    ){
+        value = Math.abs( Math.round( (dY/10)-5));
+        if(value>=0 && value<=20){
+            output.style = "clip-path: polygon( 0% 52%," + dX + "% " + dY + "%, 50% 52%);";
+        }
+    }else if(
+        0 <= dX && dX < 50 && dY == 0
+    ){
+        value = Math.round( dX/10+5);
+        if(value>=0 && value<=20){
+            output.style = "clip-path: polygon( 0% 52%,0% 0%," + dX + "% " + dY + "%, 50% 52%);";
+        }
+    }else if(
+        50 <= dX && dX <= 100 && dY == 0
+    ){
+        value = Math.round( dX/10+5);
+        if(value>=0 && value<=20){
+            output.style = "clip-path: polygon( 0% 52%,0% 0%,50% 0%," + dX + "% " + dY + "%, 50% 52%);";
+        }
+    }else if(
+        dX == 100 && 0 <= dY && dY <= 50
+    ){
+        value = Math.abs( Math.round( (dY/10)+15));
+        if(value>=0 && value<=20){
+            output.style = "clip-path: polygon( 0% 52%,0% 0%,50% 0%,100% 0%," + dX + "% " + dY + "%, 50% 52%);";
+        }
+    }
+    if( Math.abs(angle)<=90) {
+        styleafter.innerHTML = ".round-slider_after {transform: rotate(" + -angle + "deg); height: " + event.target.offsetHeight / 2 + "px;}";
+    }
+    if( Math.abs(angle)<=88){
+         const invest_slider__title=document.querySelector('.invest-slider__title')
+        const invest_slider__price=document.querySelector('.invest-slider__price')
+        invest_slider__title.innerHTML = `You will get $${value*5}.000 per month`;
+        invest_slider__price.innerHTML =`$${value*50}.000`;
+    }
+}
+
+
+
