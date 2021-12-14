@@ -29,5 +29,10 @@
 		"sass": "latest",
 		"transform-runtime": "0.0.0",
 		"webp-converter": "2.2.3"
+	},
+	"dependencies": {
+		"gsap": "^3.8.0",
+		"gulp-concat": "^2.6.1",
+		"swiper": "^7.3.1"
 	}
 }
