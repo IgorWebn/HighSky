@@ -169,13 +169,31 @@
 /*-------------END-For-managers----------*/
 
 /*-------------avia-parallax----------*/
+
+.mouse-parallax {
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+}
+.mouse-parallax-bg {
+  position: absolute;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 110%;
+  height: 110%;
+  transition: all 0.1s ease;
+}
+.avia{
+  background-image: url("../img/forTeams/2049.png");
+}
+
+
 .avia-parallax {
   &__body {
-    img {
       width: 100%;
       min-height: 350px;
-      object-fit: cover;
-    }
+    @include adaptiv-value('height', 744, 350, 0);
   }
 }
 

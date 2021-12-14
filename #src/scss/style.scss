@@ -608,6 +608,7 @@ body {
 /*Slider*/
 
 .round-slider {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   display: grid;
   position: absolute;
   justify-self: center;
@@ -618,7 +619,7 @@ body {
   left: 50%;
   transform: translate(-50%,50%);
   @include adaptiv-value('bottom', 32, 18, 0);
-  @include adaptiv-value('width', 835, 300, 0);
+  @include adaptiv-value('width', 825, 295, 0);
   @include adaptiv-value('height', 825, 295, 0);
   z-index: 10000;
   @media (min-width: 1440px){
@@ -634,8 +635,13 @@ body {
   justify-self: center;
   align-self: center;
   pointer-events: none;
-  border: 10px solid #0094FF;
-  clip-path: polygon( 0% 52%,0% 32%, 50% 50%);
+//  border: 10px solid #0094FF;
+ // background: url("../img/ForInvestors/slider/line-elips.svg") center/cover no-repeat;
+//  clip-path: polygon( 0% 52%,0% 32%, 50% 50%);
+  svg{
+    width: calc(100% + 50px);
+    height:100%;
+  }
  }
 .round-slider_after {
   display: block;
@@ -845,7 +851,10 @@ body {
     }
   }
   .round-slider .selection {
-    border: 5px solid #0094FF;
+   // border: 5px solid #0094FF;
+    path{
+      stroke-width:6;
+    }
   }
 }
 

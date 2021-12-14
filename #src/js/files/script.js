@@ -56,7 +56,7 @@ window.addEventListener('resize',()=>{
 const sliders = document.getElementsByClassName("round-slider");
 
 for (let i = 0; i < sliders.length; i++) {
-    sliders[i].addEventListener("click", round_slider_tune, false);
+   sliders[i].addEventListener("click", round_slider_tune, false);
     sliders[i].addEventListener("mousedown", function(event) {
         sliders[i].onmousemove = function(event) {
             if (event.buttons == 1 || event.buttons == 3) {
@@ -136,9 +136,12 @@ function round_slider_tune(event) {
     }
 }
 
+/*---------END-Slider---------*/
 
 
-    let $lineLeft = document.querySelectorAll('.js-decor-line');
+/*----------Lines---------*/
+
+    let lineLeft = document.querySelectorAll('.js-decor-line');
 
     const translateLeftX = gsap.timeline({
         scrollTrigger: {
@@ -148,10 +151,25 @@ function round_slider_tune(event) {
           //  markers:true,
             end: '+=3000',
         }
-    }).fromTo($lineLeft, {
+    }).fromTo(lineLeft, {
         x: 1000
     }, {
         x: 0,
         duration: 2,
         ease: 'none'
     })
+
+/*---------END-Lines---------*/
+
+/*-------------Parallax------------------*/
+
+let bg = document.querySelectorAll('.mouse-parallax-bg');
+for (let i = 0; i < bg.length; i++){
+    window.addEventListener('mousemove', function(e) {
+        let x = e.clientX / window.innerWidth;
+        let y = e.clientY / window.innerHeight;
+        bg[i].style.transform = 'translate(-' + x * 50 + 'px, -' + y * 50 + 'px)';
+    });
+}
+
+/*-----------END--Parallax------------------*/
