@@ -67,6 +67,9 @@ for (let i = 0; i < sliders.length; i++) {
 }
 
 function round_slider_tune(event) {
+    /*думаю рефы сдесь не нужны*/
+    const invest_slider__title = document.querySelector('.invest-slider__title');
+    const invest_slider__price = document.querySelector('.invest-slider__price');
     let eventDoc = (event.target && event.target.ownerDocument) || document,
         doc = eventDoc.documentElement,
         body = eventDoc.body;
@@ -75,8 +78,10 @@ function round_slider_tune(event) {
         (doc && doc.clientLeft || body && body.clientLeft || 0);
 
     let output = event.target.getElementsByClassName("selection")[0],
+        outputWidth = 825/100,
         styleafter = document.head.appendChild(document.createElement("style")),
         elpos = event.target.getBoundingClientRect(),
+        polygon = output.querySelector('#polygon'),
         cX = elpos.width / 2,
         cY = elpos.height / 2,
         eX = event.pageX - elpos.left,
@@ -85,7 +90,7 @@ function round_slider_tune(event) {
         dY = 0,
         angle = Math.atan2(cX - eX, cY - eY) * (180 / Math.PI),
         value = 2;
-
+    console.log('outputWidth',outputWidth);
     if (Math.abs(eX - cX) >= Math.abs(eY - cY)) { // 110 90
         dX = 150 / 2 + Math.sign(eX - cX) * 150 / 2;
         dY = 150 / 2 + (eY - cY) / Math.abs(eX - cX) * 150 / 2;
@@ -101,36 +106,35 @@ function round_slider_tune(event) {
     ){
         value = Math.abs( Math.round( (dY/10)-5));
         if(value>=0 && value<=20){
-            output.style = "clip-path: polygon( 0% 52%," + dX + "% " + dY + "%, 50% 52%);";
+            polygon.setAttribute('points',`-${outputWidth*2},${outputWidth*52} ${Math.round(outputWidth*dX)},${Math.round(outputWidth*dY)} ${outputWidth*50},${outputWidth*52}`)
         }
     }else if(
         0 <= dX && dX < 50 && dY == 0
     ){
         value = Math.round( dX/10+5);
         if(value>=0 && value<=20){
-            output.style = "clip-path: polygon( 0% 52%,0% 0%," + dX + "% " + dY + "%, 50% 52%);";
+            polygon.setAttribute('points',`0,${outputWidth*52} 0,0 ${Math.round(outputWidth*dX)},${Math.round(outputWidth*dY)} ${outputWidth*50},${outputWidth*52}`)
         }
     }else if(
         50 <= dX && dX <= 100 && dY == 0
     ){
         value = Math.round( dX/10+5);
         if(value>=0 && value<=20){
-            output.style = "clip-path: polygon( 0% 52%,0% 0%,50% 0%," + dX + "% " + dY + "%, 50% 52%);";
+            polygon.setAttribute('points',`0,${outputWidth*52} 0,0 ${outputWidth*50},0 ${Math.round(outputWidth*dX)},${Math.round(outputWidth*dY)} ${outputWidth*50},${outputWidth*52}`)
         }
     }else if(
         dX == 100 && 0 <= dY && dY <= 50
     ){
         value = Math.abs( Math.round( (dY/10)+15));
         if(value>=0 && value<=20){
-            output.style = "clip-path: polygon( 0% 52%,0% 0%,50% 0%,100% 0%," + dX + "% " + dY + "%, 50% 52%);";
+          //  output.style = "clip-path: polygon( 0% 52%,0% 0%,50% 0%,100% 0%," + dX + "% " + dY + "%, 50% 52%);";
+            polygon.setAttribute('points',`-100,${Math.floor(outputWidth*52)} 0,0 ${outputWidth*50},0 ${outputWidth*100},0 ${Math.floor(outputWidth*dX)},${Math.floor(outputWidth*dY)} ${outputWidth*55},${Math.floor(outputWidth*52)}`)
         }
     }
     if( Math.abs(angle)<=90) {
         styleafter.innerHTML = ".round-slider_after {transform: rotate(" + -angle + "deg); ";
     }
     if( Math.abs(angle)<=88){
-         const invest_slider__title=document.querySelector('.invest-slider__title')
-        const invest_slider__price=document.querySelector('.invest-slider__price')
         invest_slider__title.innerHTML = `You will get $${value*5}.000 per month`;
         invest_slider__price.innerHTML =`$${value*50}.000`;
     }
